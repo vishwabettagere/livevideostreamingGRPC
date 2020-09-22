@@ -1,0 +1,32 @@
+{
+  "name": "livecamerafeedermicroservice",
+  "version": "1.0.0",
+  "description": "pulls camera feed via a rtsp and pushes to cloud",
+  "main": "app.js",
+  "bin": "./dist/app.js",
+  "scripts": {
+    "build": "rm -rf ./dist ; tsc",
+    "tsc": "tsc",
+    "start": "tsc && node ./dist/app.js",
+    "dev": "ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts",
+    "buildBinary": "tsc && pkg ./dist/app.js -t node8-linux-x64 -o ./binary/cameraLiveFeedMicroService",
+    "runBinary": "tsc ;  pkg ./dist/app.js -t node8-linux-x64 -o ./binary/cameraLiveFeedMicroService ; ./binary/cameraLiveFeedMicroService"
+  },
+  "author": "Vishwa",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.1.4",
+    "chalk": "^4.0.0",
+    "date-time": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "ffmpeg-respawn": "^0.3.0",
+    "grpc": "^1.24.3",
+    "loading-cli": "^1.1.0",
+    "lodash": "^4.17.15",
+    "mp4frag": "^0.2.0",
+    "mqtt": "^3.0.0",
+    "socket.io-client": "^2.3.0",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^4.0.3"
+  }
+}

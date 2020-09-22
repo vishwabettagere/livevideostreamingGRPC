@@ -1,0 +1,7 @@
+{
+    "apps" : [{
+      "name"       : "ffserver",
+      "script"     : "./ffserver.sh",
+      "interpreter": "bash"
+    }]
+  }
