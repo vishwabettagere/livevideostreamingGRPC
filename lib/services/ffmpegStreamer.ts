@@ -1,16 +1,18 @@
 import * as CONFIG from "../utils/config"
 import { Mp4Frag } from "./"
 import { FfmpegRespawn } from "./";
-import * as fs from "fs";
+import {GrpcClient} from "../grpc";
 
 export class FfmpegStrem {
 
     private mp4frag: any;
     private ffmpeg: any;
     private cameraDetails: any;
+    private grpcClient: any;
 
     constructor(deviceDetails: object, initChild: boolean = true) {
         this.cameraDetails = deviceDetails;
+        this.grpcClient = GrpcClient.getInstance();
         if (initChild) {
             if (this.cameraDetails.rtspUrl) {
 
@@ -121,7 +123,7 @@ export class FfmpegStrem {
                     segment: this.mp4frag.segment,
                 }
                 console.log(payload.initSegment.length, payload.segment.length)
-
+                this.grpcClient.streamChunks(payload);
             }
         });
     }
