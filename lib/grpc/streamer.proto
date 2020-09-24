@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+
+service Streamer {
+
+  rpc streamVideoChunks (ChunkPayload) returns (Response) {}
+}
+
+
+message ChunkPayload {
+    bytes initSegment = 1;
+    bytes segment = 2;
+
+}
+
+message Response{
+  string message = 1;
+}
