@@ -41,7 +41,7 @@ export let FFMPEG_CONFIGURATIONS ={
 
 export const INPUT_STREAM_FILE_PATH = process.env.INPUT_STREAM_FILE_PATH;
 export const INPUT_STREAMS = require(INPUT_STREAM_FILE_PATH);
-export const SERVER_SOCKET_URL = process.env.SERVER_SOCKET_URL //"http://51.158.127.151:4500";
+export const SERVER_SOCKET_URL = process.env.SERVER_SOCKET_URL 
 export const STREAMING_EVENT = process.env.STREAMING_TOPIC;
 export const API_KEY = process.env.API_KEY;
 export const PORT: number = 3000;

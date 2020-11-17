@@ -1,9 +1,9 @@
-import * as CONFIG from "../utils/config"
-import { Mp4Frag } from "./"
+import * as CONFIG from "../utils/config";
+import { Mp4Frag } from "./";
 import { FfmpegRespawn } from "./";
 import {GrpcClient} from "../grpc";
 
-export class FfmpegStrem {
+export class FfmpegUtilStreamer {
 
     private mp4frag: any;
     private ffmpeg: any;
@@ -16,18 +16,18 @@ export class FfmpegStrem {
         if (initChild) {
             if (this.cameraDetails.rtspUrl) {
 
-                console.log("Initializing the Child process");
+                console.log("Initializing the ffmpeg util Child process");
                 this.mp4frag = new Mp4Frag({ hlsListSize: CONFIG.HLS_LIST_SIZE, hlsBase: 'pool', bufferListSize: CONFIG.VIDEO_BUFFER_SIZE });
                 this.execChildProcess();
 
 
             }
             else {
-                throw new Error("Input stream parameters are invalid");
+                throw new Error("stream/camera parameters are invalid");
             }
         }
         process.on("exit", function(){
-            console.log("Process Exited restarting the service again")
+            console.log("child process quits, restarting the child again")
         })
     }
     
@@ -43,7 +43,7 @@ export class FfmpegStrem {
             params: any[] = CONFIG.FFMPEG_CONFIGURATIONS.FFMPEG_PARAMS(this.cameraDetails.rtspUrl, this.cameraDetails.protocol, this.cameraDetails.frameRate),
             options: any[] = CONFIG.FFMPEG_CONFIGURATIONS.OPTIONS;
         if(ffmpegCommand && params.length > 0){
-            console.log("FFMPEG params loaded");
+            console.log("FFMPEG params loaded into module");
 
         }
 
@@ -112,7 +112,6 @@ export class FfmpegStrem {
         console.log(` | Started Listener For RTSP URL ==> ${camDetails.rtspUrl}`)
         this.mp4frag.on('initialized', (data) => {
             console.log(" | Initialization fragment is ready: ", data.mime);
-            console.log(` | Started Publishing Video Chunks For RTSP URL ==> ${camDetails.rtspUrl} and namespace ${camDetails.socketNamespace}`);
 
         })
 
@@ -127,9 +126,5 @@ export class FfmpegStrem {
             }
         });
     }
-
-    
-
-   
 
 }

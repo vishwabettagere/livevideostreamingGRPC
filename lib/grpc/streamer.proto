@@ -3,7 +3,7 @@ syntax = "proto3";
 
 service Streamer {
 
-  rpc streamVideoChunks (ChunkPayload) returns (Response) {}
+  rpc streamVideoChunks (stream ChunkPayload) returns (Response) {}
 }
 
 

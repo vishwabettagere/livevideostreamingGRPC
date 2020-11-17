@@ -1,10 +1,10 @@
-import { FfmpegStrem } from "./";
-import * as CONFIG from "../utils/config"
+import { FfmpegUtilStreamer } from "./";
+import * as CONFIG from "../utils/config";
 
 
 
 
-//initializing different camera feed streams and sockets under different namespaces
+//initializing different camera feed streams
 
 export default class StreamerService{
 
@@ -13,7 +13,7 @@ export default class StreamerService{
         let streams = [];
         CONFIG.STREAMING_DEVICES.forEach((device) => {
             streams.push({
-                streamObj: new FfmpegStrem(device),
+                streamObj: new FfmpegUtilStreamer(device),
                 streamMap: device,
             });
         })

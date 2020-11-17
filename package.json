@@ -7,10 +7,8 @@
   "scripts": {
     "build": "rm -rf ./dist ; tsc",
     "tsc": "tsc",
-    "start": "tsc && node ./dist/app.js",
     "dev": "ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts",
-    "buildBinary": "tsc && pkg ./dist/app.js -t node8-linux-x64 -o ./binary/cameraLiveFeedMicroService",
-    "runBinary": "tsc ;  pkg ./dist/app.js -t node8-linux-x64 -o ./binary/cameraLiveFeedMicroService ; ./binary/cameraLiveFeedMicroService"
+    "runBinary": "tsc ;  pkg package.json -t node8-linux-x64 -o ./binary/cameraLiveFeedGRPC ; ./binary/cameraLiveFeedGRPC"
   },
   "author": "Vishwa",
   "license": "ISC",
@@ -29,5 +27,6 @@
     "socket.io-client": "^2.3.0",
     "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^4.0.3"
-  }
+  },
+  "asset":["lib/grpc/*.proto"]
 }
