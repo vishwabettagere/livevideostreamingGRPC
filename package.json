@@ -1,14 +1,13 @@
 {
   "name": "livecamerafeedermicroservice",
   "version": "1.0.0",
-  "description": "pulls camera feed via a rtsp and pushes to cloud",
+  "description": "pulls camera feed via a rtsp and pushes via grpc",
   "main": "app.js",
   "bin": "./dist/app.js",
   "scripts": {
     "build": "rm -rf ./dist ; tsc",
     "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts",
-    "runBinary": "tsc ;  pkg package.json -t node8-linux-x64 -o ./binary/cameraLiveFeedGRPC ; ./binary/cameraLiveFeedGRPC"
+    "dev": "ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts"
   },
   "author": "Vishwa",
   "license": "ISC",
