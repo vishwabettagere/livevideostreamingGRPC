@@ -121,7 +121,7 @@ export class FfmpegUtilStreamer {
                     initSegment: this.mp4frag.initialization,
                     segment: this.mp4frag.segment,
                 }
-                console.log(payload.initSegment.length, payload.segment.length)
+                //console.log(payload.initSegment.length, payload.segment.length)
                 this.grpcClient.streamChunks(payload);
             }
         });

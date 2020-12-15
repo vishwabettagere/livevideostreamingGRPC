@@ -47,14 +47,19 @@ export class GrpcClient{
         publishPayload.initSegment = payload.initSegment;
         publishPayload.segment = payload.segment;
 
-        this.client.streamVideoChunks(publishPayload,function(err, response){
+        let call: any = this.client.streamVideoChunks(function(err, response){
             if(err){
-                console.log(err);
+                console.log("Error occured",err.details);
             }
             else{
-                console.log(response)
+                console.log("received the response ", response);
             }
         })
+
+        call.write(publishPayload);
+
+
+        
     }
 
 

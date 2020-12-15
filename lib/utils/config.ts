@@ -53,7 +53,7 @@ export const STREAMING_DEVICES = [];
 INPUT_STREAMS.forEach((device)=>{
   STREAMING_DEVICES.push(device);
 });
-export const GRPC_URL: string = "localhost:50051"
+export const GRPC_URL: string = "localhost:10000"
 export const  SOCKET = {
   OPTION:{
     reconnect: true,

@@ -27,6 +27,9 @@ function streamVideoChunks(call, callback){
     call.on('data', function(chunks){
       console.log("data event")
         console.log(chunks);
+        callback(null, {
+          message:"done"
+      })
     })
     call.on('end', function(){
       console.log("end event");
@@ -34,9 +37,13 @@ function streamVideoChunks(call, callback){
             message:"done"
         })
     })
+  /*   console.log(call.request);
+    callback(null,{
+      message:"done"
+  } ) */
 }
 
-grpcServer.bindAsync('0.0.0.0:1000', grpc.ServerCredentials.createInsecure(), (err, port)=>{
+grpcServer.bindAsync('0.0.0.0:10000', grpc.ServerCredentials.createInsecure(), (err, port)=>{
   console.log(err, port);
   grpcServer.start();
 });
