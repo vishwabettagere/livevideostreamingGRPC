@@ -46,7 +46,7 @@ ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts
     node grpcServer.js
     ```
 
-    On running the above setup we can see video stream chunks are being pushed to gRPC server with the stream ID in the payload
+On running the above setup we can see video stream chunks are being pushed to gRPC server with the stream ID in the payload
 
 **Please Note: Client side code and the mechanism to get the video feed on the browser is in progress, will add in the next commits**
 
