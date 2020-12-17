@@ -41,9 +41,6 @@ export let FFMPEG_CONFIGURATIONS ={
 
 export const INPUT_STREAM_FILE_PATH = process.env.INPUT_STREAM_FILE_PATH;
 export const INPUT_STREAMS = require(INPUT_STREAM_FILE_PATH);
-export const SERVER_SOCKET_URL = process.env.SERVER_SOCKET_URL 
-export const STREAMING_EVENT = process.env.STREAMING_TOPIC;
-export const API_KEY = process.env.API_KEY;
 export const PORT: number = 3000;
 export const PRECEDING_VIDEO_RECORD_PATH = process.cwd() + "/video_snippets_preceding/";
 export const SUCCEEDING_VIDEO_RECORD_PATH = process.cwd() + "/video_snippets_succeeding/";
@@ -53,18 +50,6 @@ export const STREAMING_DEVICES = [];
 INPUT_STREAMS.forEach((device)=>{
   STREAMING_DEVICES.push(device);
 });
-export const GRPC_URL: string = "localhost:10000"
-export const  SOCKET = {
-  OPTION:{
-    reconnect: true,
-    reconnectionDelay:3000,
-    autoConnect:true,
-    reconnectionDelayMax:5000
-  },
-  TIME_INTERVAL_CHECK_CONNECTION_STATUS:3, // in seconds
-  TOPICS:{
-    CAMERA_LIVE_FEED:'cameraLiveFeed'
-  }
+export const GRPC_URL: string = process.env.GRPC_SERVER_URL; //"localhost:10000"
 
-};
 

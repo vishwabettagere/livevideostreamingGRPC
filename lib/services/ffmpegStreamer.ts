@@ -118,6 +118,7 @@ export class FfmpegUtilStreamer {
         this.mp4frag.on('segment', (data) => {
             if (this.mp4frag.initialization) {
                 let payload = {
+                    id:this.cameraDetails.id,
                     initSegment: this.mp4frag.initialization,
                     segment: this.mp4frag.segment,
                 }

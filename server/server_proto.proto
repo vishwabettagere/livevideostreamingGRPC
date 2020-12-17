@@ -8,8 +8,9 @@ service Streamer {
 
 
 message ChunkPayload {
-    bytes initSegment = 1;
-    bytes segment = 2;
+    string id = 1;
+    bytes initSegment = 2;
+    bytes segment = 3;
 
 }
 

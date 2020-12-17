@@ -41,13 +41,15 @@ export class GrpcClient{
 
     public streamChunks(payload: any): void{
         let publishPayload  = {
+            id:"",
             initSegment:"",
             segment:""
         };
+        publishPayload.id = payload.id;
         publishPayload.initSegment = payload.initSegment;
         publishPayload.segment = payload.segment;
 
-        let call: any = this.client.streamVideoChunks(function(err, response){
+        let call: any = this.client.streamVideoChunks(function(err: any, response: any){
             if(err){
                 console.log("Error occured",err.details);
             }
