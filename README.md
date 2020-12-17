@@ -1,6 +1,6 @@
-#Video Streaming Using ffmpeg and gRPC service
+# Video Streaming Using ffmpeg and gRPC service
 
-##This microservice is aimed at pulling a video stream from IP camera(any compatible device which supports RTSP) and pushing the stream chunks into the GRPC server running in any network(cloud as well)
+## This microservice is aimed at pulling a video stream from IP camera(any compatible device which supports RTSP) and pushing the stream chunks into the GRPC server running in any network(cloud as well)
 
 **Steps to run the project**
 
@@ -39,7 +39,7 @@ ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts
     ]
     ```
 
-    ##Server side setup
+## Server side setup
 
     ```
     cd server
