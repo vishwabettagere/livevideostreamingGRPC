@@ -13,7 +13,7 @@ ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts
 ```
 **Setting up initial configuration**
 
-**The very first config file is .env , Keep this file in the pe=roject root directory**
+**The very first config file is .env , Keep this file in the project root directory**
 
     ```
     #grpc server url
