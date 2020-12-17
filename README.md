@@ -40,6 +40,7 @@ ts-node-dev --respawn --inspect --transpileOnly ./lib/app.ts
     ```
 
 ## Server side setup
+*Server is the gRPC server with its protobuf message structure(.proto) is kept inside the server dir. gRPC service where server is listening and client is streaming mechanism is used(unidirectional stream).*
 
     ```
     cd server
